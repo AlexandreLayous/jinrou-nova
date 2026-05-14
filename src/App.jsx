@@ -1,6 +1,6 @@
 import './App.css'
-import logoDark from './assets/jinrou_dark_180x180.png'
-import logoLight from './assets/jinrou_light_180x180.png'
+import logoDark from '/jinrou_dark_180x180.png'
+import logoLight from '/jinrou_light_180x180.png'
 
 function App() {
 
