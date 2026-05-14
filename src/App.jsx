@@ -14,7 +14,7 @@ function App() {
             <img
               className="logo-mark"
               src="/favicon_light.svg"
-              alt=""
+              alt="Logo Jinrō"
               width="72"
               height="72"
             />
