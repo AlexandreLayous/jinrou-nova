@@ -14,7 +14,7 @@
   <meta name="apple-mobile-web-app-title" content="Jinrō Nova" />
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#16171d" media="(prefers-color-scheme: dark)" />
-  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="manifest" href="%BASE_URL%site.webmanifest" />
 
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
@@ -23,7 +23,7 @@
     property="og:description"
     content="Bluff, stratégie et déduction au scrum matinal : faites avancer le modèle critique, ou sabotez l'équipe en secret."
   />
-  <meta property="og:image" content="/jinrou_dark_180x180.png" />
+  <meta property="og:image" content="%BASE_URL%jinrou_dark_180x180.png" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Jinrō 人狼 - Jeu de rôle Nova" />
@@ -31,26 +31,27 @@
     name="twitter:description"
     content="Un jeu de rôle façon Loup-garou dans l'univers Nova, entre modèle critique, sabotage secret et accusations au scrum."
   />
-  <meta name="twitter:image" content="/jinrou_dark_180x180.png" />
+  <meta name="twitter:image" content="%BASE_URL%jinrou_dark_180x180.png" />
 
-  <link id="favicon" rel="icon" type="image/svg+xml" href="/favicon_light.svg" />
+  <link id="favicon" rel="icon" type="image/svg+xml" href="%BASE_URL%favicon_light.svg" />
 
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="/jinrou_light_32x32.png"
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="%BASE_URL%jinrou_light_32x32.png"
     media="(prefers-color-scheme: light)" />
 
-  <link rel="alternate icon" type="image/png" sizes="32x32" href="/jinrou_dark_32x32.png"
+  <link rel="alternate icon" type="image/png" sizes="32x32" href="%BASE_URL%jinrou_dark_32x32.png"
     media="(prefers-color-scheme: dark)" />
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/jinrou_dark_180x180.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="%BASE_URL%jinrou_dark_180x180.png" />
 
   <script>
     const favicon = document.getElementById('favicon')
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+    const baseUrl = '%BASE_URL%'
 
     function updateFavicon() {
       favicon.href = darkModeMediaQuery.matches
-        ? '/favicon_dark.svg'
-        : '/favicon_light.svg'
+        ? `${baseUrl}favicon_dark.svg`
+        : `${baseUrl}favicon_light.svg`
     }
 
     darkModeMediaQuery.addEventListener('change', updateFavicon)
