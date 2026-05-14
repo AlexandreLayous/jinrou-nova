@@ -1,6 +1,4 @@
 import './App.css'
-import logoDark from '/jinrou_dark_180x180.png'
-import logoLight from '/jinrou_light_180x180.png'
 
 function App() {
 
@@ -9,8 +7,17 @@ function App() {
       <div className="container">
         <a className="logo-link" href="/" aria-label="Retour à l'accueil">
           <picture>
-            <source srcSet={logoDark} media="(prefers-color-scheme: dark)" />
-            <img className="logo-mark" src={logoLight} alt="" width="72" height="72" />
+            <source
+              srcSet="/favicon_dark.svg"
+              media="(prefers-color-scheme: dark)"
+            />
+            <img
+              className="logo-mark"
+              src="/favicon_light.svg"
+              alt=""
+              width="72"
+              height="72"
+            />
           </picture>
           <div className="logo-text">
             <h1>Jinrō 人狼</h1>
