@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon_light.svg" />
+  <link
+    rel="alternate icon"
+    type="image/png"
+    sizes="32x32"
+    href="/src/assets/jinrou_light_32x32.png"
+    media="(prefers-color-scheme: light)"
+  />
+  <link
+    rel="alternate icon"
+    type="image/png"
+    sizes="32x32"
+    href="/src/assets/jinrou_dark_32x32.png"
+    media="(prefers-color-scheme: dark)"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/src/assets/jinrou_light_180x180.png"
+    media="(prefers-color-scheme: light)"
+  />
+  <link
+    rel="apple-touch-icon"
+    sizes="180x180"
+    href="/src/assets/jinrou_dark_180x180.png"
+    media="(prefers-color-scheme: dark)"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jinrou Nova</title>
+  <script>
+    const favicon = document.querySelector('link[rel="icon"]')
+    const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)')
+
+    function updateFavicon(event) {
+      favicon.href = event.matches ? '/favicon_dark.svg' : '/favicon_light.svg'
+    }
+
+    darkModeMediaQuery.addEventListener('change', updateFavicon)
+    updateFavicon(darkModeMediaQuery)
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>

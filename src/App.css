@@ -1,0 +1,74 @@
+h1,
+h2 {
+  color: var(--text-h);
+  font-family: var(--heading);
+  margin: 0;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.3;
+  padding-top: 0.35rem;
+}
+
+.container {
+  max-width: calc(100% - 4rem);
+  margin: 0 auto;
+  padding: 2rem 2rem;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  text-decoration: none;
+}
+
+.logo-link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0.35rem;
+}
+
+.logo-mark {
+  display: block;
+  width: 4.5rem;
+  height: 4.5rem;
+  flex: 0 0 auto;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 0.875rem;
+  }
+
+  .container {
+    max-width: calc(100% - 4rem);
+  }
+
+  .logo-link {
+    gap: 0.875rem;
+  }
+
+  .logo-mark {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
