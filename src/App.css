@@ -20,9 +20,20 @@ h2 {
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh;
   max-width: calc(100% - 4rem);
   margin: 0 auto;
   padding: 2rem 2rem;
+}
+
+@supports (min-height: 100dvh) {
+  .container {
+    min-height: 100dvh;
+  }
 }
 
 .logo-link {
@@ -55,6 +66,121 @@ h2 {
 .logo-text {
   display: flex;
   flex-direction: column;
+}
+
+.centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.description,
+.description_2 {
+  opacity: 0;
+  visibility: hidden;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text);
+  animation: fadeIn 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.description {
+  animation-delay: 0s;
+}
+
+.description_2 {
+  animation-delay: 3.5s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.play-button {
+  opacity: 0;
+  visibility: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.58rem 0.8rem 0.58rem 1.2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 1.5;
+  border: 2px solid var(--text-h);
+  border-radius: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 2.5rem;
+
+  -webkit-tap-highlight-color: transparent;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  animation: fadeIn 1.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.play-button {
+  animation-delay: 7s;
+}
+
+.intro-seen .description,
+.intro-seen .description_2,
+.intro-seen .play-button {
+  opacity: 1;
+  visibility: visible;
+  animation: none;
+}
+
+.play-button-icon-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  color: var(--text-h);
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.play-button-icon {
+  color: var(--text-h);
+  width: 0.95rem;
+  height: 0.95rem;
+  stroke-width: 2.6px;
+}
+
+.play-button-label {
+  color: var(--text-h);
+  margin-top: -0.25rem;
+}
+
+.footer {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.footer p {
+  margin: 0 0;
+  font-size: 0.875rem;
 }
 
 @media (max-width: 600px) {
