@@ -1,0 +1,30 @@
+.setup-centered-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.setup-intro {
+  max-width: 32rem;
+  margin: 0;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0;
+  visibility: hidden;
+  animation: setupFadeIn 0.8s ease-in-out forwards;
+}
+
+@keyframes setupFadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
