@@ -26,7 +26,9 @@ function AppShell({ children }) {
         </div>
       </a>
 
-      {children}
+      <main className="app-main">
+        {children}
+      </main>
 
       <div className="app-footer">
         <p>Développé par Alexandre LAYOUS</p>

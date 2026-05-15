@@ -79,6 +79,12 @@
   border-radius: 0.5rem;
 }
 
+.setup-participant-name {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+
 .setup-remove-button {
   flex: 0 0 auto;
   color: #991b1b;

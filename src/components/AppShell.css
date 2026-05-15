@@ -63,6 +63,15 @@ h2 {
   flex-direction: column;
 }
 
+.app-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex: 1;
+  padding-block: clamp(2rem, 6vh, 5rem);
+}
+
 .app-footer {
   user-select: none;
 }

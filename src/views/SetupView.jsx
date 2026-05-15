@@ -2,6 +2,7 @@ import './SetupView.css'
 import { useState } from 'react'
 
 const PARTICIPANTS_STORAGE_KEY = 'jinroNovaParticipants'
+const PARTICIPANT_NAME_MAX_LENGTH = 20
 
 function SetupView() {
   const [participants, setParticipants] = useState(() => {
@@ -23,9 +24,21 @@ function SetupView() {
       return
     }
 
-    setParticipants((previousParticipants) => (
-      saveParticipants([...previousParticipants, trimmedName])
+    if (trimmedName.length > PARTICIPANT_NAME_MAX_LENGTH) {
+      alert(`Le prénom doit contenir ${PARTICIPANT_NAME_MAX_LENGTH} caractères maximum.`)
+      return
+    }
+
+    const participantAlreadyExists = participants.some((participant) => (
+      participant.toLocaleLowerCase() === trimmedName.toLocaleLowerCase()
     ))
+
+    if (participantAlreadyExists) {
+      alert(`${trimmedName} est déjà présent.e.`)
+      return
+    }
+
+    setParticipants(saveParticipants([...participants, trimmedName]))
     setParticipantName('')
   }
 
@@ -46,6 +59,7 @@ function SetupView() {
           type="text"
           className="setup-participant-input"
           placeholder="Nom du participant"
+          maxLength={PARTICIPANT_NAME_MAX_LENGTH}
           value={participantName}
           onChange={(event) => setParticipantName(event.target.value)}
           onKeyDown={(event) => {
@@ -67,7 +81,7 @@ function SetupView() {
       <ul className="setup-participants-list">
         {participants.map((name, index) => (
           <li key={index} className="setup-participant-item">
-            <span>{name}</span>
+            <span className="setup-participant-name">{name}</span>
             <button
               className="setup-remove-button"
               type="button"
