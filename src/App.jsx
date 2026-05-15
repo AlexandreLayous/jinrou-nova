@@ -1,66 +1,25 @@
 import { useEffect, useState } from 'react'
-import './App.css'
-import ChevronRightIcon from './components/ChevronRightIcon.jsx'
+import HomeView from './views/HomeView.jsx'
 
 const INTRO_STORAGE_KEY = 'jinroNovaIntroSeen'
 
 function App() {
-  const baseUrl = import.meta.env.BASE_URL
+  const [currentView, setCurrentView] = useState('home')
   const [hasSeenIntro] = useState(() => (
     localStorage.getItem(INTRO_STORAGE_KEY) === 'true'
   ))
 
   useEffect(() => {
-    if (hasSeenIntro) {
-      return
+    if (!hasSeenIntro) {
+      localStorage.setItem(INTRO_STORAGE_KEY, 'true')
     }
-
-    localStorage.setItem(INTRO_STORAGE_KEY, 'true')
   }, [hasSeenIntro])
 
   return (
-    <div className={`container ${hasSeenIntro ? 'intro-seen' : ''}`}>
-      <a className="logo-link" href={baseUrl} aria-label="Retour à l'accueil">
-        <picture>
-          <source
-            srcSet={`${baseUrl}favicon_dark.svg`}
-            media="(prefers-color-scheme: dark)"
-          />
-          <img
-            className="logo-mark"
-            src={`${baseUrl}favicon_light.svg`}
-            alt="Logo Jinrō"
-            width="72"
-            height="72"
-          />
-        </picture>
-        <div className="logo-text">
-          <h1>Jinrō 人狼</h1>
-          <h2>("Homme-loup")</h2>
-        </div>
-      </a>
-
-      <div className="centered-content">
-        <span className="description">
-          Jinrō est un jeu où les joueurs incarnent des membres de l'équipe Nova et doivent mener à bien un projet critique.
-        </span>
-        <span className="description_2">
-          Pour ne rien faciliter, des saboteurs infiltrés cherchent à faire échouer la mission...
-        </span>
-        <button className="play-button" onClick={() => alert('Fonctionnalité à venir !')}>
-          <span className="play-button-label">Jouer à Jinrō</span>
-          <span className="play-button-icon-circle" aria-hidden="true">
-            <ChevronRightIcon className="play-button-icon" />
-          </span>
-        </button>
-      </div>
-
-      <div className="footer">
-        <p>
-          Développé par Alexandre LAYOUS
-        </p>
-      </div>
-    </div>
+    <HomeView
+      hasSeenIntro={hasSeenIntro}
+      onPlay={() => alert('Fonctionnalité à venir !')}
+    />
   )
 }
 
